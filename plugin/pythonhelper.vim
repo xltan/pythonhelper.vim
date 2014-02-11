@@ -614,7 +614,7 @@ def findTag(bufferNumber, changedTick):
         # if an appropriate tag has been found, set the description accordingly {{{
         if (nearestLineNumber > -1):
             tagInfo = tags[nearestLineNumber]
-            tagDescription = "[in %s (%s)]" % (tagInfo.fullName, PythonTag.TAG_TYPE_NAME[tagInfo.type],)
+            tagDescription = "[%s]" % (tagInfo.fullName, ) # not using PythonTag.TAG_TYPE_NAME[tagInfo.type] because ENOSPC
         # }}}
         # }}}
 
