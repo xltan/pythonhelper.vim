@@ -741,18 +741,17 @@ autocmd CursorHold * call PHCursorHold()
 autocmd CursorHoldI * call PHCursorHold()
 autocmd BufDelete * silent call PHBufferDelete()
 
-" time that determines after how long time of no activity the CursorHold event
-" is fired up
-set updatetime=1000
-
-" color of the current tag in the status line (bold cyan on black)
-highlight User1 gui=bold guifg=cyan guibg=black
-" color of the modified flag in the status line (bold black on red)
-highlight User2 gui=bold guifg=black guibg=red
-" the status line will be displayed for every window
-set laststatus=2
-" set the status line to display some useful information
-set stl=%-f%r\ %2*%m%*\ \ \ \ %1*%{TagInStatusLine()}%*%=[%l:%c]\ \ \ \ [buf\ %n]
+"" Example configuration (but let's not do this, it's not nice to unilaterally
+"" override users' settings)
+""
+"" " color of the current tag in the status line (bold cyan on black)
+"" highlight User1 gui=bold guifg=cyan guibg=black
+"" " color of the modified flag in the status line (bold black on red)
+"" highlight User2 gui=bold guifg=black guibg=red
+"" " the status line will be displayed for every window
+"" set laststatus=2
+"" " set the status line to display some useful information
+"" set stl=%-f%r\ %2*%m%*\ \ \ \ %1*%{TagInStatusLine()}%*%=[%l:%c]\ \ \ \ [buf\ %n]
 
 " }}}
 
