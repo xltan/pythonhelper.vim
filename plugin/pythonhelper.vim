@@ -737,8 +737,8 @@ endfunction
 " event binding, vim customizing {{{
 
 " autocommands binding
-autocmd CursorHold * call PHCursorHold()
-autocmd CursorHoldI * call PHCursorHold()
+autocmd CursorMoved * call PHCursorHold()
+autocmd CursorMovedI * call PHCursorHold()
 autocmd BufDelete * silent call PHBufferDelete()
 
 "" Example configuration (but let's not do this, it's not nice to unilaterally
