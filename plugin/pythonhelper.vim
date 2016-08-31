@@ -47,7 +47,6 @@ if !exists("g:pythonhelper_python")
     endif
 endif
 
-execute g:pythonhelper_python 'import sys, vim'
 execute g:pythonhelper_python 'import pythonhelper'
 
 " VIM functions {{{
