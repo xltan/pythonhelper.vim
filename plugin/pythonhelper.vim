@@ -69,7 +69,7 @@ function! PHBufferDelete()
     let w:PHStatusLine = ""
 
     " call python function deleteTags() with the cur
-    execute g:pythonhelper_python 'python pythonhelper.deleteTags(' . expand("<abuf>") . ')'
+    execute g:pythonhelper_python 'pythonhelper.deleteTags(' . expand("<abuf>") . ')'
 endfunction
 
 
