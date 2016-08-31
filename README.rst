@@ -19,9 +19,10 @@ I recommend `Vundle <https://github.com/gmarik/vundle>`_, `pathogen
 <https://github.com/tpope/vim-pathogen>`_ or `Vim Addon Manager
 <https://github.com/MarcWeber/vim-addon-manager>`_.  E.g. with Vundle do ::
 
-  :BundleInstall "mgedmin/pythonhelper.vim"
+  :PluginInstall "mgedmin/pythonhelper.vim"
 
-Manual installation: copy ``plugin/pythonhelper.vim`` to ``~/.vim/plugin/``.
+Manual installation: copy ``plugin/pythonhelper.vim`` and
+``plugin/pythonhelper.py`` to ``~/.vim/plugin/``.
 
 
 Configuration
