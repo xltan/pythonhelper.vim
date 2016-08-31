@@ -533,7 +533,7 @@ def findTag(bufferNumber, changedTick):
             nearestLineNumber = tagLineNumbers[nearestLineIndex]
 
             # walk through all the lines in range (nearestTagLine, cursorRow) {{{
-            for lineNumber in xrange(nearestLineNumber + 1, row):
+            for lineNumber in range(nearestLineNumber + 1, row):
                 # get the current line
                 line = currentBuffer[lineNumber]
 
@@ -609,7 +609,7 @@ def findTag(bufferNumber, changedTick):
         # }}}
 
         # spit out the error {{{
-        print "ERROR: %s %s %s:%u" % (ec.__name__, ei, tb.tb_frame.f_code.co_filename, tb.tb_lineno,)
+        print("ERROR: %s %s %s:%u" % (ec.__name__, ei, tb.tb_frame.f_code.co_filename, tb.tb_lineno,))
         time.sleep(0.5)
         # }}}
     # }}}
