@@ -21,8 +21,10 @@ I recommend `Vundle <https://github.com/gmarik/vundle>`_, `pathogen
 
   :PluginInstall "mgedmin/pythonhelper.vim"
 
-Manual installation: copy ``plugin/pythonhelper.vim`` and
-``plugin/pythonhelper.py`` to ``~/.vim/plugin/``.
+Manual installation:
+
+- copy ``plugin/pythonhelper.vim`` to ``~/.vim/plugin/``.
+- copy ``pythonx/pythonhelper.py`` to ``~/.vim/pythonx/``.
 
 
 Configuration

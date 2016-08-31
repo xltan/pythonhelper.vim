@@ -1,6 +1,6 @@
 """
 " HACK to make this file source'able by vim as well as importable by Python:
-python reload(pythonhelper)
+execute g:pythonhelper_python 'reload(pythonhelper)'
 finish
 """
 

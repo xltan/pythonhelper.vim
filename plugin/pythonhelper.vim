@@ -23,8 +23,9 @@
 " ------------
 " 1. Make sure your Vim has python feature on (+python). If not, you will need
 "    to recompile it with --with-pythoninterp option to the configure script
-" 2. Copy pythonhelper.vim and pythonhelper.py to the $HOME/.vim/plugin directory
-" 3. Add something like this to your .vimrc:
+" 2. Copy pythonhelper.vim to the $HOME/.vim/plugin directory
+" 3. Copy pythonhelper.py to the $HOME/.vim/pythonx directory
+" 4. Add something like this to your .vimrc:
 "
 "      " color of the current tag in the status line (bold cyan on black)
 "      highlight User1 gui=bold guifg=cyan guibg=black
@@ -35,12 +36,19 @@
 "      " set the status line to display some useful information
 "      set stl=%-f%r\ %2*%m%*\ \ \ \ %1*%{TagInStatusLine()}%*%=[%l:%c]\ \ \ \ [buf\ %n]
 "
-" 4. Run Vim and open any python file.
+" 5. Run Vim and open any python file.
 "
-python import sys, vim
-python if vim.eval('expand("<sfile>:p:h")') not in sys.path:
-  \        sys.path.append(vim.eval('expand("<sfile>:p:h")'))
-python import pythonhelper
+
+if !exists("g:pythonhelper_python")
+    if has("python3")
+        let g:pythonhelper_python = "python3"
+    else
+        let g:pythonhelper_python = "python"
+    endif
+endif
+
+execute g:pythonhelper_python 'import sys, vim'
+execute g:pythonhelper_python 'import pythonhelper'
 
 " VIM functions {{{
 
@@ -53,7 +61,7 @@ function! PHCursorHold()
     " }}}
 
     " call python function findTag() with the current buffer number and changed ticks
-    execute 'python pythonhelper.findTag(' . expand("<abuf>") . ', ' . b:changedtick . ')'
+    execute g:pythonhelper_python 'pythonhelper.findTag(' . expand("<abuf>") . ', ' . b:changedtick . ')'
 endfunction
 
 
@@ -62,7 +70,7 @@ function! PHBufferDelete()
     let w:PHStatusLine = ""
 
     " call python function deleteTags() with the cur
-    execute 'python pythonhelper.deleteTags(' . expand("<abuf>") . ')'
+    execute g:pythonhelper_python 'python pythonhelper.deleteTags(' . expand("<abuf>") . ')'
 endfunction
 
 
