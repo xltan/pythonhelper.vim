@@ -1,8 +1,8 @@
 " File: pythonhelper.vim
 " Author: Michal Vitecek <fuf-at-mageo-dot-cz>
 " Maintainer: Marius Gedminas <marius@gedmin.as>
-" Version: 0.90
-" Last Modified: 2016-08-31
+" Version: 0.91
+" Last Modified: 2016-12-27
 "
 " Overview
 " --------
@@ -42,8 +42,10 @@
 if !exists("g:pythonhelper_python")
     if has("python3")
         let g:pythonhelper_python = "python3"
-    else
+    elseif has("python")
         let g:pythonhelper_python = "python"
+    else
+        finish
     endif
 endif
 
