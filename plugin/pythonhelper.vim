@@ -1,8 +1,8 @@
 " File: pythonhelper.vim
 " Author: Michal Vitecek <fuf-at-mageo-dot-cz>
 " Maintainer: Marius Gedminas <marius@gedmin.as>
-" Version: 0.91
-" Last Modified: 2016-12-27
+" Version: 0.92
+" Last Modified: 2017-03-14
 "
 " Overview
 " --------
@@ -121,9 +121,12 @@ endfunction
 " event binding, vim customizing {{{
 
 " autocommands binding
-autocmd CursorMoved * call PHCursorHold()
-autocmd CursorMovedI * call PHCursorHold()
-autocmd BufDelete * silent call PHBufferDelete()
+augroup PythonHelper
+    autocmd!
+    autocmd CursorMoved * call PHCursorHold()
+    autocmd CursorMovedI * call PHCursorHold()
+    autocmd BufDelete * silent call PHBufferDelete()
+augroup END
 
 " }}}
 
