@@ -1,7 +1,7 @@
 " File: pythonhelper.vim
 " Author: Michal Vitecek <fuf-at-mageo-dot-cz>
 " Maintainer: Marius Gedminas <marius@gedmin.as>
-" Version: 0.92
+" Version: 0.93
 " Last Modified: 2017-03-14
 "
 " Overview
@@ -67,8 +67,10 @@ endfunction
 
 
 function! PHBufferDelete()
-    " set PHStatusLine for this window to empty string
-    let w:PHStatusLine = ""
+    if bufnr("") == expand("<abuf>")
+        " set PHStatusLine for this window to empty string
+        let w:PHStatusLine = ""
+    endif
 
     " call python function deleteTags() with the cur
     execute g:pythonhelper_python 'pythonhelper.deleteTags(' . expand("<abuf>") . ')'
@@ -125,6 +127,7 @@ augroup PythonHelper
     autocmd!
     autocmd CursorMoved * call PHCursorHold()
     autocmd CursorMovedI * call PHCursorHold()
+    autocmd BufEnter * call PHCursorHold()
     autocmd BufDelete * silent call PHBufferDelete()
 augroup END
 
