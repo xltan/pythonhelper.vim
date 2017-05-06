@@ -113,7 +113,7 @@ class SimplePythonTagsParser(object):
     # regexp used to extract a class name
     CLASS_RE                    = re.compile('class[ \t]+([^(:]+).*')
     # regexp used to extract a method or function name
-    METHOD_RE                   = re.compile('def[ \t]+([^(]+).*')
+    METHOD_RE                   = re.compile('(?:async\s*)?def[ \t]+([^(]+).*')
 
     # }}}
 
