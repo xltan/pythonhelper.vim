@@ -35,6 +35,13 @@ Add ``%{TagInStatusLine()}`` to your 'statusline', e.g. ::
   set statusline=%<%f\ %h%m%r\ %1*%{TagInStatusLine()}%*%=%-14.(%l,%c%V%)\ %P
 
 
+Alternatives
+------------
+
+`Tagbar <https://github.com/majutsushi/tagbar>`_ looks like a better-maintained
+alternative that supports not just Python, but other languages as well.
+
+
 Copyright
 ---------
 
