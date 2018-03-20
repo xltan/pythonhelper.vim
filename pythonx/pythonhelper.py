@@ -1,6 +1,6 @@
 """
 " HACK to make this file source'able by vim as well as importable by Python:
-execute g:pythonhelper_python 'reload(pythonhelper)'
+pyx import sys; sys.modules.pop("pythonhelper", None); import pythonhelper
 finish
 """
 
@@ -111,9 +111,9 @@ class SimplePythonTagsParser(object):
     # regexp used to extract indentation and strip comments
     COMMENTS_INDENT_RE          = re.compile('([ \t]*)([^\n#]*).*')
     # regexp used to extract a class name
-    CLASS_RE                    = re.compile('class[ \t]+([^(:]+).*')
+    CLASS_RE                    = re.compile('class[ \t]+([^(: \t]+).*')
     # regexp used to extract a method or function name
-    METHOD_RE                   = re.compile('(?:async\s*)?def[ \t]+([^(]+).*')
+    METHOD_RE                   = re.compile('(?:async\s*)?def[ \t]+([^( \t]+).*')
 
     # }}}
 
