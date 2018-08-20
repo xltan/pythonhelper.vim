@@ -78,6 +78,7 @@ endfunction
 
 
 function! TagInStatusLine()
+    execute g:pythonhelper_python 'pythonhelper.findTag(' . bufnr("") . ', ' . b:changedtick . ')'
     " return value of w:PHStatusLine in case it's set
     if (exists("w:PHStatusLine"))
         return w:PHStatusLine
@@ -125,9 +126,9 @@ endfunction
 " autocommands binding
 augroup PythonHelper
     autocmd!
-    autocmd CursorMoved * call PHCursorHold()
-    autocmd CursorMovedI * call PHCursorHold()
-    autocmd BufEnter * call PHCursorHold()
+    " autocmd CursorMoved * call PHCursorHold()
+    " autocmd CursorMovedI * call PHCursorHold()
+    " autocmd BufEnter * call PHCursorHold()
     autocmd BufDelete * silent call PHBufferDelete()
 augroup END
 
